@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Books app</title>
+</h:head>
+
+<h:body>
+    <ui:include src="menu.xhtml"/>
+
+    <p:panel header="Add new book">
+        <h:form id="form">
+            <p:growl id="messagesGrowl" widgetVar="messagesGrowl" globalOnly="true" showSummary="true" closable="true"
+                     sticky="true" autoUpdate="true"/>
+
+            <h:panelGrid columns="3" cellpadding="4">
+                <h:outputText value="Author: "/>
+                <p:inputText id="author" value="#{bookController.author}">
+                    <f:validator validatorId="authorValidator"/>
+                </p:inputText>
+                <h:message for="author"/>
+
+
+                <h:outputText value="Title: #{bookController.title}"/>
+                <p:inputText id="title" value="#{bookController.title}"/>
+                <h:message for="title"/>
+
+
+                <h:outputText value="ISBN: "/>
+                <p:inputText id="isbn" value="#{bookController.isbn}"/>
+                <h:message for="isbn"/>
+
+
+                <p:commandButton action="#{bookController.saveForm()}"
+                                 update="form"
+                                 value="Submit"/>
+            </h:panelGrid>
+        </h:form>
+    </p:panel>
+
+</h:body>
+</html>

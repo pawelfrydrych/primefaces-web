@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Book App</title>
+</h:head>
+
+<h:body>
+    <h:form id="booklist">
+        <ui:include src="menu.xhtml"/>
+        <p:growl id="messagesGrowl" widgetVar="messagesGrowl" globalOnly="true" showSummary="true" closable="true"
+                 sticky="true" autoUpdate="true"/>
+        <p:dataTable
+                var="book"
+                value="#{bookController.books}"
+                emptyMessage="No records"
+                rows="5"
+                scrollable="true"
+                paginator="true"
+                id="bookDatatable">
+
+            <p:column headerText="Author">
+                <h:outputText value="#{book.author}"/>
+            </p:column>
+
+            <p:column headerText="Title">
+                <h:outputText value="#{book.title}"/>
+            </p:column>
+
+            <p:column headerText="ISBN">
+                <h:outputText value="#{book.isbn}"/>
+            </p:column>
+        </p:dataTable>
+
+    </h:form>
+</h:body>
+</html>
