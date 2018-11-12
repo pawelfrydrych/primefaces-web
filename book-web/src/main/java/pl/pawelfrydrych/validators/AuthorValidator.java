@@ -11,11 +11,11 @@ import javax.faces.validator.ValidatorException;
 public class AuthorValidator implements Validator {
 	@Override
 	public void validate(FacesContext facesContext, UIComponent uiComponent, Object o) throws ValidatorException {
-		String val = (String) o;
-		String[] vals = val.split(" ");
+		String author = (String) o;
+		String[] values = author.split(" ");
 
 		boolean valid = false;
-		for (String s : vals) {
+		for (String s : values) {
 			if (s.startsWith("A")) {
 				valid = true;
 			}

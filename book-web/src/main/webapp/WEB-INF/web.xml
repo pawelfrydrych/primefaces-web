@@ -12,6 +12,11 @@
         <param-value>true</param-value>
     </context-param>
 
+    <context-param>
+        <param-name>metadata.serviceBaseURI</param-name>
+        <param-value>http://localhost:8080/book-service/</param-value>
+    </context-param>
+
     <servlet>
         <servlet-name>faces-servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
